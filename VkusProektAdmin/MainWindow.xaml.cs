@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VkusProektAdmin.Models;
 
 namespace VkusProektAdmin
 {
@@ -20,6 +21,23 @@ namespace VkusProektAdmin
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void EnterButton_Click(object sender, RoutedEventArgs e)
+        {
+            var user = SingleTon.DB.Users.Where(u => u.Login == LoginTextBox.Text && u.Password == PasswordTextBox.Password).FirstOrDefault();
+        
+            if(user == null)
+            {
+                MessageBox.Show("Пользователь не найден!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            SingleTon.User = user;
+            AdministrationWindow administrationWindow = new AdministrationWindow();
+
+            LoginTextBox.Text = null;
+            PasswordTextBox.Password = null;
+            administrationWindow.ShowDialog();
         }
     }
 }
