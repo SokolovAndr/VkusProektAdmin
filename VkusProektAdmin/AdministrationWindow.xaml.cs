@@ -26,9 +26,29 @@ namespace VkusProektAdmin
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            SingleTon.DB.Users.Load();
-            DataGridTest.ItemsSource = SingleTon.DB.Users.ToArray();
-            //_todoDataList.ListChanged += _todoDataList_ListChanged;
+            LoadData();
+        }
+
+        public void LoadData()
+        {
+            DataGridTest.ItemsSource = SingleTon.DB.Users.ToArray();  //мб ToList
+        }
+
+        private void CreareButton_Click(object sender, RoutedEventArgs e)
+        {
+            NewUserWindow newUserWindow = new NewUserWindow();
+            if(newUserWindow.ShowDialog() == DialogResult.OK)
+            {
+                Users users = new()
+                {
+                    Login = newUserWindow.LoginTexBox.Text,
+                    Password = newUserWindow.PasswordTextBox.Text,
+                };
+                SingleTon.DB.Users.Add(users);
+                SingleTon.DB.SaveChanges();
+            }
+            DataGridTest.ItemsSource = null;
+            LoadData();
         }
     }
 }

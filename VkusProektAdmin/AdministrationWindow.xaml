@@ -5,13 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VkusProektAdmin"
         mc:Ignorable="d"
-        Title="AdministrationWindow" Height="450" Width="800"
+        Title="AdministrationWindow" Height="500" Width="800"
         WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
-    <DataGrid x:Name="DataGridTest" FontSize="16" FontWeight="Bold" Margin="10" AutoGenerateColumns="False">
-        <DataGrid.Columns>
-            <DataGridTextColumn Binding="{Binding Path=Id}" IsReadOnly ="True" Header="Id" Width="50" />
-            <DataGridTextColumn Binding="{Binding Path = Login}" IsReadOnly ="False" Header="Login" Width="100" />
-            <DataGridTextColumn Binding="{Binding Path=Password}" IsReadOnly ="False"  Header="Password" Width="*" />
-        </DataGrid.Columns>
-    </DataGrid>
+
+    <Grid Height="490" VerticalAlignment="Top">
+        <DataGrid x:Name="DataGridTest" Height="350" FontSize="16" FontWeight="Bold" Margin="10,10,10,0" AutoGenerateColumns="False" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=Id}" IsReadOnly ="True" Header="Id" Width="50" />
+                <DataGridTextColumn Binding="{Binding Path = Login}" IsReadOnly ="False" Header="Login" Width="100" />
+                <DataGridTextColumn Binding="{Binding Path=Password}" IsReadOnly ="False"  Header="Password" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Margin="10,365,10,10">
+            <Button x:Name="RedactButton" Content="Редактировать" HorizontalAlignment="Left" Margin="326,27,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <Button x:Name="CreareButton" Content="Создать" HorizontalAlignment="Left" Margin="207,27,0,0" VerticalAlignment="Top" FontSize="16" Click="CreareButton_Click"/>
+            <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="513,27,0,0" VerticalAlignment="Top" FontSize="16"/>
+        </Grid>
+    </Grid>
+
 </Window>
