@@ -10,7 +10,7 @@ using VkusProektAdmin;
 
 namespace VkusProektAdmin.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
+    [DbContext(typeof(AppDBContext))]
     [Migration("20230217182707_Initial1")]
     partial class Initial1
     {

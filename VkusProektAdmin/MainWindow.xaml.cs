@@ -37,6 +37,7 @@ namespace VkusProektAdmin
 
             LoginTextBox.Text = null;
             PasswordTextBox.Password = null;
+            this.Close();
             administrationWindow.ShowDialog();
         }
     }

@@ -11,10 +11,10 @@ namespace VkusProektAdmin
     {
         public static Users User { get; set; }
 
-        public static AppDbContext DB { get; set; }
+        public static AppDBContext DB { get; set; }
         static SingleTon()
         {
-            DB = new AppDbContext();
+            DB = new AppDBContext();
         }
     }
 }

@@ -6,8 +6,12 @@
         xmlns:local="clr-namespace:VkusProektAdmin"
         mc:Ignorable="d"
         Title="AdministrationWindow" Height="450" Width="800"
-        WindowStartupLocation="CenterScreen">
-    <Grid>
-        
-    </Grid>
+        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <DataGrid x:Name="DataGridTest" FontSize="16" FontWeight="Bold" Margin="10" AutoGenerateColumns="False">
+        <DataGrid.Columns>
+            <DataGridTextColumn Binding="{Binding Path=Id}" IsReadOnly ="True" Header="Id" Width="50" />
+            <DataGridTextColumn Binding="{Binding Path = Login}" IsReadOnly ="False" Header="Login" Width="100" />
+            <DataGridTextColumn Binding="{Binding Path=Password}" IsReadOnly ="False"  Header="Password" Width="*" />
+        </DataGrid.Columns>
+    </DataGrid>
 </Window>

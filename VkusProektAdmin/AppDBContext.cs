@@ -8,11 +8,11 @@ using VkusProektAdmin.Models;
 
 namespace VkusProektAdmin
 {
-    public class AppDbContext : DbContext
+    public class AppDBContext : DbContext
     {
         public DbSet <Users> Users { get; set; }
 
-        public AppDbContext() => Database.Migrate();
+        public AppDBContext() => Database.Migrate();
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=admindb;Trusted_Connection=True;");
