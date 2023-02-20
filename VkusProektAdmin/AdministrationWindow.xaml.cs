@@ -50,5 +50,21 @@ namespace VkusProektAdmin
             DataGridTest.ItemsSource = null;
             LoadData();
         }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Вы уверены что хотите удалить?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
+            {
+                SingleTon.DB.Remove(DataGridTest.SelectedItem);
+                SingleTon.DB.SaveChanges();
+                DataGridTest.ItemsSource = null;
+                LoadData();
+            }
+            else if (result == MessageBoxResult.No)
+            {
+                return;
+            }
+        }
     }
 }
