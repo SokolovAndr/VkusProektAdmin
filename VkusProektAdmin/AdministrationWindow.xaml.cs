@@ -51,13 +51,14 @@ namespace VkusProektAdmin
             LoadData();
         }
 
-        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        private void RedactButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Вы уверены что хотите удалить?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if (result == MessageBoxResult.Yes)
-            {
-                SingleTon.DB.Remove(DataGridTest.SelectedItem);
+            MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите сохранить изменения?", "Изменение", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if(result == MessageBoxResult.Yes) 
+            { 
+                SingleTon.DB.Update(DataGridTest.SelectedItem);
                 SingleTon.DB.SaveChanges();
+                MessageBox.Show("Успешно изменено!", "Изменение", MessageBoxButton.OK, MessageBoxImage.Information);
                 DataGridTest.ItemsSource = null;
                 LoadData();
             }
@@ -66,5 +67,23 @@ namespace VkusProektAdmin
                 return;
             }
         }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Вы уверены что хотите удалить?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
+            {
+                SingleTon.DB.Remove(DataGridTest.SelectedItem);
+                SingleTon.DB.SaveChanges();
+                MessageBox.Show("Успешно удалено!", "Удаление", MessageBoxButton.OK, MessageBoxImage.Information);
+                DataGridTest.ItemsSource = null;
+                LoadData();
+            }
+            else if (result == MessageBoxResult.No)
+            {
+                return;
+            }
+        }
+
     }
 }

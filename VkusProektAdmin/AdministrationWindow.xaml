@@ -17,7 +17,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Grid Margin="10,365,10,10">
-            <Button x:Name="RedactButton" Content="Редактировать" HorizontalAlignment="Left" Margin="326,27,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <Button x:Name="RedactButton" Content="Сохранить изменения" HorizontalAlignment="Center" Margin="0,27,0,0" VerticalAlignment="Top" FontSize="16" Click="RedactButton_Click"/>
             <Button x:Name="CreareButton" Content="Создать" HorizontalAlignment="Left" Margin="207,27,0,0" VerticalAlignment="Top" FontSize="16" Click="CreareButton_Click"/>
             <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="513,27,0,0" VerticalAlignment="Top" FontSize="16" Click="DeleteButton_Click"/>
         </Grid>
