@@ -37,7 +37,7 @@ namespace VkusProektAdmin
         private void CreareButton_Click(object sender, RoutedEventArgs e)
         {
             NewUserWindow newUserWindow = new NewUserWindow();
-            if(newUserWindow.ShowDialog() == DialogResult.OK)
+            if(newUserWindow.ShowDialog() == true)
             {
                 Users users = new()
                 {

@@ -26,7 +26,7 @@ namespace VkusProektAdmin
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = DialogResult.OK;
+            this.DialogResult = true;
             Close();
         }
     }
