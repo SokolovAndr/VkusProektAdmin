@@ -8,11 +8,11 @@
         WindowStartupLocation="CenterScreen"
         Title="NewUserWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="LoginTexBox" HorizontalAlignment="Left" Margin="352,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="PasswordTextBox" HorizontalAlignment="Left" Margin="352,147,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Введите логин:" HorizontalAlignment="Left" Margin="245,100,0,0" VerticalAlignment="Top"/>
-        <Label Content="Введите пароль:" HorizontalAlignment="Left" Margin="245,143,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" Margin="517,244,0,0" VerticalAlignment="Top" Click="AddButton_Click"/>
+        <TextBox x:Name="LoginTexBox" HorizontalAlignment="Left" Margin="352,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="PasswordTextBox" HorizontalAlignment="Left" Margin="352,147,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Введите логин:" HorizontalAlignment="Left" Margin="206,100,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Введите пароль:" HorizontalAlignment="Left" Margin="206,143,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" Margin="515,240,0,0" VerticalAlignment="Top" Click="AddButton_Click" FontSize="16" FontWeight="Bold"/>
 
     </Grid>
 </Window>

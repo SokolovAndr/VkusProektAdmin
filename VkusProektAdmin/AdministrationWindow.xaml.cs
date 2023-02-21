@@ -31,93 +31,84 @@ namespace VkusProektAdmin
 
         public void LoadData()
         {
-            DataGridTest.ItemsSource = SingleTon.DB.Users.ToArray();  //мб ToList
+            //DataGridTest.ItemsSource = SingleTon.DB.Users.ToArray();  //мб ToList
             DataGridVkusProekt.ItemsSource = SingleTon.DBvkus.Orders.ToArray();
-        }
-
-        private void CreateButton_Click(object sender, RoutedEventArgs e)
-        {
-            NewUserWindow newUserWindow = new NewUserWindow();
-            if(newUserWindow.ShowDialog() == true)
-            {
-                Users users = new()
-                {
-                    Login = newUserWindow.LoginTexBox.Text,
-                    Password = newUserWindow.PasswordTextBox.Text,
-                };
-                SingleTon.DB.Users.Add(users);
-                SingleTon.DB.SaveChanges();
-            }
-            DataGridTest.ItemsSource = null;
-            LoadData();
-        }
-
-        private void RedactButton_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите сохранить изменения?", "Изменение", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if(result == MessageBoxResult.Yes) 
-            { 
-                SingleTon.DB.Update(DataGridTest.SelectedItem);
-                SingleTon.DB.SaveChanges();
-                MessageBox.Show("Успешно изменено!", "Изменение", MessageBoxButton.OK, MessageBoxImage.Information);
-                DataGridTest.ItemsSource = null;
-                LoadData();
-            }
-            else if (result == MessageBoxResult.No)
-            {
-                return;
-            }
-        }
-
-        private void DeleteButton_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBoxResult result = MessageBox.Show("Вы уверены что хотите удалить?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if (result == MessageBoxResult.Yes)
-            {
-                SingleTon.DB.Remove(DataGridTest.SelectedItem);
-                SingleTon.DB.SaveChanges();
-                MessageBox.Show("Успешно удалено!", "Удаление", MessageBoxButton.OK, MessageBoxImage.Information);
-                DataGridTest.ItemsSource = null;
-                LoadData();
-            }
-            else if (result == MessageBoxResult.No)
-            {
-                return;
-            }
         }
 
         private void RedactButton1_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите сохранить изменения?", "Изменение", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            
+            try
             {
-                SingleTon.DBvkus.Update(DataGridVkusProekt.SelectedItem);
-                SingleTon.DBvkus.SaveChanges();
-                MessageBox.Show("Успешно изменено!", "Изменение", MessageBoxButton.OK, MessageBoxImage.Information);
-                DataGridVkusProekt.ItemsSource = null;
-                LoadData();
+                MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите сохранить изменения?", "Изменение", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    SingleTon.DBvkus.Update(DataGridVkusProekt.SelectedItem);
+                    SingleTon.DBvkus.SaveChanges();
+                    MessageBox.Show("Успешно изменено!", "Изменение", MessageBoxButton.OK, MessageBoxImage.Information);
+                    DataGridVkusProekt.ItemsSource = null;
+                    LoadData();
+                }
+                else if (result == MessageBoxResult.No)
+                {
+                    return;
+                }
             }
-            else if (result == MessageBoxResult.No)
+            catch  
             {
-                return;
+                MessageBox.Show("Вы ничего не выбрали!", "Изменение", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
         private void DeleteButton1_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Вы уверены что хотите удалить?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if (result == MessageBoxResult.Yes)
+            try
             {
-                SingleTon.DBvkus.Remove(DataGridVkusProekt.SelectedItem);
+                MessageBoxResult result = MessageBox.Show("Вы уверены что хотите удалить?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (result == MessageBoxResult.Yes)
+                {
+                    SingleTon.DBvkus.Remove(DataGridVkusProekt.SelectedItem);
+                    SingleTon.DBvkus.SaveChanges();
+                    MessageBox.Show("Успешно удалено!", "Удаление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    DataGridVkusProekt.ItemsSource = null;
+                    LoadData();
+                }
+                else if (result == MessageBoxResult.No)
+                {
+                    return;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Вы ничего не выбрали!", "Удаление", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }      
+
+        private void CreateButton_Click(object sender, RoutedEventArgs e)
+        {
+            NewOrderWindow newOrderWindow = new NewOrderWindow();
+            if (newOrderWindow.ShowDialog() == true)
+            {
+                Order order = new()
+                {
+                    Name = newOrderWindow.NameTextBox.Text,
+                    Surname = newOrderWindow.SurnameTextBox.Text,
+                    Adress = newOrderWindow.AdressTextBox.Text,
+                    Email = newOrderWindow.EmailTextBox.Text,
+                    Phone = newOrderWindow.PhoneTextBox.Text,
+                    OrderTime = DateTime.Now,
+                };
+                SingleTon.DBvkus.Orders.Add(order);
                 SingleTon.DBvkus.SaveChanges();
-                MessageBox.Show("Успешно удалено!", "Удаление", MessageBoxButton.OK, MessageBoxImage.Information);
-                DataGridVkusProekt.ItemsSource = null;
-                LoadData();
             }
-            else if (result == MessageBoxResult.No)
-            {
-                return;
-            }
+            DataGridVkusProekt.ItemsSource = null;
+            LoadData();
+        }
+
+        private void ButtonDisplayUsers_Click(object sender, RoutedEventArgs e)
+        {
+            UserWindow userWindow = new UserWindow();
+            userWindow.ShowDialog();
         }
     }
 }

@@ -1,0 +1,23 @@
+﻿<Window x:Class="VkusProektAdmin.UserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VkusProektAdmin"
+        mc:Ignorable="d"
+        Title="UserWindow" Height="450" Width="800" Loaded="Window_Loaded"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DataGrid x:Name="DataGridTest" Height="241" FontSize="16" FontWeight="Bold" Margin="10,10,10,0" AutoGenerateColumns="False" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" IsReadOnly ="True" Header="Id" Width="50" />
+                <DataGridTextColumn Binding="{Binding Login}" IsReadOnly ="False" Header="Login" Width="100" />
+                <DataGridTextColumn Binding="{Binding Password}" IsReadOnly ="False"  Header="Password" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="RedactButton" Content="Сохранить изменения" HorizontalAlignment="Left" Margin="291,284,0,0" VerticalAlignment="Top" FontSize="16" Click="RedactButton_Click" FontWeight="Bold"/>
+        <Button x:Name="CreateButton" Content="Создать" HorizontalAlignment="Left" Margin="197,284,0,0" VerticalAlignment="Top" FontSize="16" Click="CreateButton_Click" FontWeight="Bold"/>
+        <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="503,284,0,0" VerticalAlignment="Top" FontSize="16" Click="DeleteButton_Click" FontWeight="Bold"/>
+
+    </Grid>
+</Window>
