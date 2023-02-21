@@ -5,21 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VkusProektAdmin"
         mc:Ignorable="d"
-        Title="AdministrationWindow" Height="500" Width="800"
+        Title="AdministrationWindow" Height="600" Width="800"
         WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
 
     <Grid Height="490" VerticalAlignment="Top">
-        <DataGrid x:Name="DataGridTest" Height="350" FontSize="16" FontWeight="Bold" Margin="10,10,10,0" AutoGenerateColumns="False" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="DataGridTest" Height="116" FontSize="16" FontWeight="Bold" Margin="10,10,10,0" AutoGenerateColumns="False" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=Id}" IsReadOnly ="True" Header="Id" Width="50" />
                 <DataGridTextColumn Binding="{Binding Path = Login}" IsReadOnly ="False" Header="Login" Width="100" />
                 <DataGridTextColumn Binding="{Binding Path=Password}" IsReadOnly ="False"  Header="Password" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
-        <Grid Margin="10,365,10,10">
-            <Button x:Name="RedactButton" Content="Сохранить изменения" HorizontalAlignment="Center" Margin="0,27,0,0" VerticalAlignment="Top" FontSize="16" Click="RedactButton_Click"/>
-            <Button x:Name="CreareButton" Content="Создать" HorizontalAlignment="Left" Margin="207,27,0,0" VerticalAlignment="Top" FontSize="16" Click="CreareButton_Click"/>
-            <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="513,27,0,0" VerticalAlignment="Top" FontSize="16" Click="DeleteButton_Click"/>
+        <Grid Margin="13,130,7,284" Grid.ColumnSpan="2">
+            <Button x:Name="RedactButton" Content="Сохранить изменения" HorizontalAlignment="Center" Margin="0,27,0,0" VerticalAlignment="Top" FontSize="16" Click="RedactButton_Click" FontWeight="Bold"/>
+            <Button x:Name="CreareButton" Content="Создать" HorizontalAlignment="Left" Margin="207,27,0,0" VerticalAlignment="Top" FontSize="16" Click="CreareButton_Click" FontWeight="Bold"/>
+            <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="513,27,0,0" VerticalAlignment="Top" FontSize="16" Click="DeleteButton_Click" FontWeight="Bold"/>
+        </Grid>
+        <DataGrid x:Name="DataGridVkusProekt" Margin="13,206,10,0" AutoGenerateColumns="False" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Height="227" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=Id}" IsReadOnly ="True" Header="id" Width="50" />
+                <DataGridTextColumn Binding="{Binding Path=Name}" IsReadOnly ="False" Header="name" Width="100" />
+                <DataGridTextColumn Binding="{Binding Path=Surname}" IsReadOnly ="False" Header="surname" Width="100" />
+                <DataGridTextColumn Binding="{Binding Path=Adress}" IsReadOnly ="False" Header="adress" Width="100" />
+                <DataGridTextColumn Binding="{Binding Path=Phone}" IsReadOnly ="False" Header="phone" Width="100" />
+                <DataGridTextColumn Binding="{Binding Path=Email}" IsReadOnly ="False"  Header="email" Width="100" />
+                <DataGridTextColumn Binding="{Binding Path=OrderTime}" IsReadOnly ="True"  Header="orderTime" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Margin="13,444,7,-30" Grid.ColumnSpan="2">
+            <Button x:Name="RedactButton1" Content="Сохранить изменения" HorizontalAlignment="Center" Margin="0,27,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Click="RedactButton1_Click"/>
+            <Button x:Name="DeleteButton1" Content="Удалить" HorizontalAlignment="Left" Margin="513,27,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Click="DeleteButton1_Click"/>
         </Grid>
     </Grid>
 

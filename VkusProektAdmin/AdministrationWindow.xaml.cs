@@ -32,6 +32,7 @@ namespace VkusProektAdmin
         public void LoadData()
         {
             DataGridTest.ItemsSource = SingleTon.DB.Users.ToArray();  //мб ToList
+            DataGridVkusProekt.ItemsSource = SingleTon.DBvkus.Orders.ToArray();
         }
 
         private void CreareButton_Click(object sender, RoutedEventArgs e)
@@ -85,5 +86,38 @@ namespace VkusProektAdmin
             }
         }
 
+        private void RedactButton1_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите сохранить изменения?", "Изменение", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                SingleTon.DBvkus.Update(DataGridVkusProekt.SelectedItem);
+                SingleTon.DBvkus.SaveChanges();
+                MessageBox.Show("Успешно изменено!", "Изменение", MessageBoxButton.OK, MessageBoxImage.Information);
+                DataGridVkusProekt.ItemsSource = null;
+                LoadData();
+            }
+            else if (result == MessageBoxResult.No)
+            {
+                return;
+            }
+        }
+
+        private void DeleteButton1_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Вы уверены что хотите удалить?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
+            {
+                SingleTon.DBvkus.Remove(DataGridVkusProekt.SelectedItem);
+                SingleTon.DBvkus.SaveChanges();
+                MessageBox.Show("Успешно удалено!", "Удаление", MessageBoxButton.OK, MessageBoxImage.Information);
+                DataGridVkusProekt.ItemsSource = null;
+                LoadData();
+            }
+            else if (result == MessageBoxResult.No)
+            {
+                return;
+            }
+        }
     }
 }

@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\VkusProekt\**" />
+    <EmbeddedResource Remove="Migrations\VkusProekt\**" />
+    <None Remove="Migrations\VkusProekt\**" />
+    <Page Remove="Migrations\VkusProekt\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Migrations\20230217182312_Initial.cs" />
     <Compile Remove="Migrations\20230217182312_Initial.Designer.cs" />
   </ItemGroup>
