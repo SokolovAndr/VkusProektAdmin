@@ -35,7 +35,7 @@ namespace VkusProektAdmin
             DataGridVkusProekt.ItemsSource = SingleTon.DBvkus.Orders.ToArray();
         }
 
-        private void CreareButton_Click(object sender, RoutedEventArgs e)
+        private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
             NewUserWindow newUserWindow = new NewUserWindow();
             if(newUserWindow.ShowDialog() == true)
