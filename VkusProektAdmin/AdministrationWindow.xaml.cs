@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +35,7 @@ namespace VkusProektAdmin
         {
             //DataGridTest.ItemsSource = SingleTon.DB.Users.ToArray();  //мб ToList
             DataGridVkusProekt.ItemsSource = SingleTon.DBvkus.Orders.ToArray();
+            DataGridVkusProekt2.ItemsSource = SingleTon.DBvkus.OrderDetails.ToArray();
         }
 
         private void RedactButton1_Click(object sender, RoutedEventArgs e)
@@ -110,5 +113,20 @@ namespace VkusProektAdmin
             UserWindow userWindow = new UserWindow();
             userWindow.ShowDialog();
         }
+
+        private void ShowAllButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                DataGridVkusProekt2.ItemsSource = null;
+                Order order = DataGridVkusProekt.SelectedItem as Order;
+                int orderid = Convert.ToInt32(order.Id);
+                DataGridVkusProekt2.ItemsSource = SingleTon.DBvkus.OrderDetails.Where(u=>u.OrderId == orderid).ToArray();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
     }
 }
+
+
+

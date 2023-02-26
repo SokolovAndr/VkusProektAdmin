@@ -5,31 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VkusProektAdmin"
         mc:Ignorable="d"
-        Title="AdministrationWindow" Height="652" Width="900"
+        Title="AdministrationWindow" Height="652" Width="1000"
         WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
 
-    <Grid Height="437" VerticalAlignment="Top">
+    <Grid Height="621" VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="9*"/>
             <ColumnDefinition Width="7*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="DataGridVkusProekt" Margin="13,10,10,0" AutoGenerateColumns="False" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Height="423" Grid.ColumnSpan="2">
+        <DataGrid x:Name="DataGridVkusProekt" Margin="13,10,10,0" AutoGenerateColumns="False" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Height="262" Grid.ColumnSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Path=Id}" IsReadOnly ="True" Header="id" Width="50" />
-                <DataGridTextColumn Binding="{Binding Path=Name}" IsReadOnly ="False" Header="name" Width="100" />
-                <DataGridTextColumn Binding="{Binding Path=Surname}" IsReadOnly ="False" Header="surname" Width="100" />
-                <DataGridTextColumn Binding="{Binding Path=Adress}" IsReadOnly ="False" Header="adress" Width="100" />
-                <DataGridTextColumn Binding="{Binding Path=Phone}" IsReadOnly ="False" Header="phone" Width="100" />
-                <DataGridTextColumn Binding="{Binding Path=Email}" IsReadOnly ="False"  Header="email" Width="100" />
-                <DataGridTextColumn Binding="{Binding Path=OrderTime}" IsReadOnly ="True"  Header="orderTime" Width="*" />
+                <DataGridTextColumn Binding="{Binding Path=Id}" IsReadOnly ="True" Header="Id заказа" Width="100"  />
+                <DataGridTextColumn Binding="{Binding Path=Name}" IsReadOnly ="False" Header="Имя" Width="100" />
+                <DataGridTextColumn Binding="{Binding Path=Surname}" IsReadOnly ="False" Header="Фамилия" Width="100" />
+                <DataGridTextColumn Binding="{Binding Path=Adress}" IsReadOnly ="False" Header="Адрес" Width="150" />
+                <DataGridTextColumn Binding="{Binding Path=Phone}" IsReadOnly ="False" Header="Ном. телефона" Width="120" />
+                <DataGridTextColumn Binding="{Binding Path=Email}" IsReadOnly ="False"  Header="E-mail" Width="160" />
+                <DataGridTextColumn Binding="{Binding Path=OrderTime}" IsReadOnly ="True"  Header="Время заказа" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
-        <Grid Margin="12,438,8,-172" Grid.ColumnSpan="2">
-            <Button x:Name="RedactButton1" Content="Сохранить изменения" HorizontalAlignment="Left" Margin="448,27,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Click="RedactButton1_Click"/>
-            <Button x:Name="DeleteButton1" Content="Удалить" HorizontalAlignment="Left" Margin="713,27,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Click="DeleteButton1_Click"/>
-            <Button x:Name="ButtonDisplayUsers" Content="Администрирование пользователей" HorizontalAlignment="Left" Margin="448,89,0,0" VerticalAlignment="Top" Click="ButtonDisplayUsers_Click" FontWeight="Bold" FontSize="16" Width="332"/>
-            <Button x:Name="CreateButton" Content="Создать" HorizontalAlignment="Left" Margin="289,27,0,0" VerticalAlignment="Top" FontSize="16" Click="CreateButton_Click" FontWeight="Bold"/>
+        <Grid Margin="0,272,20,275" Grid.ColumnSpan="2">
+            <Button x:Name="RedactButton1" Content="Сохранить изменения" HorizontalAlignment="Left" Margin="119,19,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Click="RedactButton1_Click"/>
+            <Button x:Name="DeleteButton1" Content="Удалить" HorizontalAlignment="Left" Margin="318,19,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Click="DeleteButton1_Click"/>
+            <Button x:Name="ButtonDisplayUsers" Content="Администрирование пользователей" HorizontalAlignment="Left" Margin="648,19,0,0" VerticalAlignment="Top" Click="ButtonDisplayUsers_Click" FontWeight="Bold" FontSize="16" Width="332"/>
+            <Button x:Name="CreateButton" Content="Создать" HorizontalAlignment="Left" Margin="25,20,0,0" VerticalAlignment="Top" FontSize="16" Click="CreateButton_Click" FontWeight="Bold"/>
+            <Button x:Name="ShowAllButton" Content="Показать состав заказа" HorizontalAlignment="Left" Margin="422,19,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Click="ShowAllButton_Click"/>
         </Grid>
+        <DataGrid x:Name="DataGridVkusProekt2" AutoGenerateColumns="False" VerticalAlignment="Top" Margin="13,333,20,0" Grid.ColumnSpan="2" Height="278" FontWeight="Bold" FontSize="16">
+            <DataGrid.Columns>
+                <!-- <DataGridTextColumn Binding="{Binding Path=Id}" IsReadOnly ="True" Header="id" Width="100"  /> -->
+                <DataGridTextColumn Binding="{Binding Path=OrderId}" IsReadOnly ="False" Header="Id заказа" Width="150" />
+                <DataGridTextColumn Binding="{Binding Path=BludoId}" IsReadOnly ="False" Header="Id блюда" Width="150" />
+                <DataGridTextColumn Binding="{Binding Path=Price}" IsReadOnly ="False" Header="Цена" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 
 </Window>

@@ -13,6 +13,7 @@ namespace VkusProektAdmin
         public static Users User { get; set; }
 
         public static Order Order { get; set; }
+        public static OrderDetail OrderDetail { get; set; }
         public static AppDBContext DB { get; set; }
 
         public static VkusProektContext DBvkus { get; set; }

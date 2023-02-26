@@ -14,6 +14,8 @@ namespace VkusProektAdmin.Connections
         public DbSet<Users> Users { get; set; }
         public DbSet<Order> Order { get; set; }
 
+        public DbSet<OrderDetail> OrderDetail { get; set; }
+
         public AppDBContext() => Database.Migrate();
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
