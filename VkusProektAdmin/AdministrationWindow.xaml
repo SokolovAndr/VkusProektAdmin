@@ -36,7 +36,8 @@
                 <!-- <DataGridTextColumn Binding="{Binding Path=Id}" IsReadOnly ="True" Header="id" Width="100"  /> -->
                 <DataGridTextColumn Binding="{Binding Path=OrderId}" IsReadOnly ="False" Header="Id заказа" Width="150" />
                 <DataGridTextColumn Binding="{Binding Path=BludoId}" IsReadOnly ="False" Header="Id блюда" Width="150" />
-                <DataGridTextColumn Binding="{Binding Path=Price}" IsReadOnly ="False" Header="Цена" Width="*" />
+                <DataGridTextColumn Binding="{Binding Path=Bludo.Price}" IsReadOnly ="False" Header="Цена" Width="150" />
+                <DataGridTextColumn Binding="{Binding Path=Bludo.Name}" IsReadOnly="False" Header="Название блюда" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

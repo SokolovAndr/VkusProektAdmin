@@ -36,6 +36,7 @@ namespace VkusProektAdmin
             //DataGridTest.ItemsSource = SingleTon.DB.Users.ToArray();  //мб ToList
             DataGridVkusProekt.ItemsSource = SingleTon.DBvkus.Orders.ToArray();
             DataGridVkusProekt2.ItemsSource = SingleTon.DBvkus.OrderDetails.ToArray();
+            DataGridVkusProekt2.ItemsSource = SingleTon.DBvkus.Bludos.ToArray();
         }
 
         private void RedactButton1_Click(object sender, RoutedEventArgs e)

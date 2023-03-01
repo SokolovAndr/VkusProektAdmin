@@ -15,6 +15,7 @@ namespace VkusProektAdmin.Connections
         public DbSet<Order> Order { get; set; }
 
         public DbSet<OrderDetail> OrderDetail { get; set; }
+        public DbSet<Bludo> Bludo { get; set; }
 
         public AppDBContext() => Database.Migrate();
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
